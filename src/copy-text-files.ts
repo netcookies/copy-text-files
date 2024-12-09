@@ -1,7 +1,7 @@
 import { ActionPanel, Clipboard, showToast, ToastStyle, useNavigation } from "@raycast/api";
 import { execSync } from "child_process";
-import fs from "fs";
-import path from "path";
+import * as fs from 'fs';
+import * as path from 'path';
 
 // 获取当前 Finder 目录路径
 async function getFinderDirectory(): Promise<string | null> {
@@ -14,9 +14,17 @@ async function getFinderDirectory(): Promise<string | null> {
   }
 }
 
-// 判断文件是否为纯文本
+// 判断文件是否为文本文件，并忽略以 . 开头的文件或 . 开头的文件夹
 function isTextFile(filePath: string): boolean {
+  const fileName = path.basename(filePath);
+
+  // 如果文件名以 . 开头，返回 false
+  if (fileName.startsWith('.')) {
+    return false;
+  }
+
   try {
+    // 尝试读取文件内容，如果没有错误则认为是文本文件
     const content = fs.readFileSync(filePath, 'utf-8');
     return true;
   } catch (error) {
@@ -24,14 +32,28 @@ function isTextFile(filePath: string): boolean {
   }
 }
 
-// 获取目录下所有纯文本文件
 async function getTextFilesFromDirectory(directory: string): Promise<string[]> {
   try {
+    let result: string[] = [];
     const files = fs.readdirSync(directory);
-    return files.filter((file) => {
+
+    for (const file of files) {
       const filePath = path.join(directory, file);
-      return isTextFile(filePath);
-    });
+
+      const stats = fs.statSync(filePath);
+
+      if (stats.isDirectory()) {
+        // 如果是目录，递归调用函数
+        const nestedFiles = await getTextFilesFromDirectory(filePath);
+        result = result.concat(nestedFiles);  // 合并子目录的文件
+      } else if (stats.isFile() && isTextFile(filePath)) {
+        // 如果是文本文件，添加到结果中
+        result.push(filePath);
+      }
+    }
+
+    console.log(result);
+    return result;
   } catch (error) {
     showToast(ToastStyle.Failure, '无法读取目录内容');
     return [];
@@ -39,12 +61,12 @@ async function getTextFilesFromDirectory(directory: string): Promise<string[]> {
 }
 
 // 读取纯文本文件内容
-async function readFileContents(directory: string, files: string[]): Promise<string> {
+async function readFileContents(files: string[]): Promise<string> {
   let content = '';
   for (const file of files) {
-    const filePath = path.join(directory, file);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    content += `# ${file}\n${fileContent}\n`;
+    console.log(file);
+    const fileContent = fs.readFileSync(file, 'utf-8');
+    content += `# File path: ${file}\n${fileContent}\n`;
   }
   return content;
 }
@@ -60,7 +82,7 @@ export default async function Command() {
     return;
   }
 
-  const mergedContent = await readFileContents(directory, textFiles);
+  const mergedContent = await readFileContents(textFiles);
   await Clipboard.copy(mergedContent);
 
   showToast(ToastStyle.Success, '文本文件内容已复制到剪贴板');
