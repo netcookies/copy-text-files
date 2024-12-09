@@ -1,72 +1,83 @@
+**Read this in other languages: [English](README.md), [中文](README_zh.md).**
+
 # Copy Text Files - Raycast Extension
 
-**Copy Text Files** 是一个为 [Raycast](https://www.raycast.com) 创建的扩展，用于快速复制指定目录或子目录中所有可读文本文件的内容到剪贴板。它可以自动识别所有非二进制文本文件（例如 `.txt`、`.md`、`.csv` 等），为用户提供简便的文件内容复制操作。
+**Copy Text Files** is an extension for [Raycast](https://www.raycast.com) that allows you to quickly copy the contents of all readable text files (e.g., `.txt`, `.md`, `.csv`) from a selected directory and its subdirectories to your clipboard. It automatically detects all non-binary text files and makes it easier for you to handle them.
 
-## 功能特性
+## Features
 
-- **支持所有可读文本文件**：插件自动识别并处理所有非二进制的文本文件，无论格式如何（例如 `.txt`、`.md`、`.csv`、`.log` 等）。
-- **递归查找子目录**：支持在指定目录及其子目录中查找所有可读文本文件，**以 `.` 开头的文件或文件夹将被忽略**，以确保只处理用户希望操作的文件。
-- **快速复制文件内容**：通过 Raycast 快速将所选文件内容复制到剪贴板，节省时间。
-- **兼容各种文本编码**：插件能够处理大多数常见的文本编码格式，确保文件内容能够正确复制。
-- **适用于向 AI 提问**：如果你希望将整个项目的代码或文本内容提供给 AI（如 ChatGPT）进行分析、调试或提问，**该插件可以帮助你复制整个项目的代码文件到剪贴板**，使得提问过程更加简便和高效。
+- **Supports all readable text files**: The extension automatically identifies and handles all non-binary text files, regardless of their format (e.g., `.txt`, `.md`, `.csv`, `.log`).
+- **Recursively scans subdirectories**: It supports scanning all readable text files within the selected directory and its subdirectories. **Files and folders starting with a dot (`.`) will be ignored** to ensure only the relevant files are processed.
+- **Fast file content copying**: Quickly copy the content of selected files to your clipboard using Raycast, saving you time and effort.
+- **Compatible with various text encodings**: The extension can handle most common text encodings, ensuring the contents are copied correctly.
+- **Perfect for AI queries**: If you need to provide an entire project’s code or text content to an AI (such as ChatGPT) for analysis, debugging, or questioning, **this extension allows you to quickly copy the entire project’s code** to your clipboard for efficient and streamlined interaction.
 
-## 系统要求
+## System Requirements
 
-- 安装并运行 [Raycast](https://www.raycast.com)。
-- 任何可读的文本文件（例如 `.txt`、`.md`、`.csv`、`.log` 等），不包括二进制文件（如图片、音频等）。
+- [Raycast](https://www.raycast.com) installed and running.
+- Any readable text file (e.g., `.txt`, `.md`, `.csv`, `.log`, etc.), excluding binary files like images or audio.
 
-## 安装
+## Installation
 
-1. 打开 Raycast。
-2. 进入 Raycast 的 **Extensions** 页面。
-3. 搜索并安装 **Copy Text Files** 插件。
-4. 安装完成后，你将在 Raycast 中找到并使用这个插件。
+1. Open Raycast.
+2. Go to the **Extensions** page.
+3. Search for and install the **Copy Text Files** extension.
+4. After installation, you can access and use the extension from within Raycast.
 
-## 使用方法
+## How to Use
 
-1. 打开 Raycast。
-2. 搜索并选择 **Copy Text Files** 扩展。
-3. 选择你想要查找文本文件的目录（支持递归查找子目录）。
-4. 插件会自动扫描该目录及子目录中的所有可读文本文件。
-5. 选择你要复制内容的文件。
-6. 选中文件后，其内容会自动复制到剪贴板，方便你在其他地方粘贴使用。
+1. Open Raycast.
+2. Search for and select the **Copy Text Files** extension.
+3. Choose the directory you want to scan for text files (it will recursively scan subdirectories).
+4. The extension will automatically scan the selected directory and its subdirectories for all readable text files.
+5. Select the file(s) you wish to copy.
+6. Once selected, the content of the file(s) will be automatically **copied to your clipboard**, ready for pasting wherever you need it.
 
-### 示例：
+### Examples:
 
-- **复制当前目录中的文本文件**：
-  选择一个文件，Raycast 会将该文件的内容复制到剪贴板。
+- **Copy content from a single file**: Select a file in the current directory, and Raycast will copy its contents to your clipboard.
+  
+- **Recursively scan and copy files from subdirectories**: The extension will scan and list all readable text files in the current directory and its subdirectories, allowing you to select the files you want and copy their contents.
 
-- **递归查找并复制子目录中的文本文件**：
-  插件会扫描并列出当前目录及其子目录中的所有可读文本文件，你可以选择需要的文件并复制其内容。
+- **Support for various text file formats**: The extension supports multiple text formats. Whether it's `.txt`, `.md`, or `.csv`, it will detect and copy the contents of any readable text file.
 
-- **支持各种文本文件格式**：
-  插件支持多种文本格式文件，无论是 `.txt`、`.md` 还是 `.csv`、`.log` 等，只要文件是可读的文本文件，插件都可以识别并复制其内容。
+- **Copy complete project code for AI queries**: If you need to provide the entire codebase of a project to an AI for analysis, debugging, or asking specific questions, this extension makes it easy to **copy the entire project’s code**. You can quickly copy the project files’ contents to your clipboard and paste them into the AI prompt for more efficient interaction.
 
-- **完整项目代码提供给 AI 提问**：
-  如果你需要将整个项目的代码（或多个相关文件）提供给 AI 进行问题分析、调试、或获取建议，使用该插件可以一键复制项目文件的内容。你可以将项目代码快速复制到剪贴板，然后直接粘贴到 AI 的提问框中，节省手动复制粘贴每个文件的时间。
+## Configuration
 
-## 配置
+No additional configuration is required. After installing and enabling the extension, you can start using it to **copy text file contents** right away.
 
-这个插件无需额外配置。安装并启用插件后，你可以直接开始使用它来复制文件内容。
+## FAQ & Troubleshooting
 
-## 常见问题与故障排除
+- **No text files found**:
+  - Ensure you've selected the correct directory, and that it contains readable text files in the directory or its subdirectories.
+  
+- **Cannot copy file contents**:
+  - Make sure Raycast is running correctly, and no other plugins or apps are interfering with clipboard operations.
+  
+- **The extension only detects some files**:
+  - The extension only processes readable text files (non-binary files). If some files are not recognized as text files, they may contain binary content or special characters.
 
-- **没有找到任何文本文件**：
-  - 请确保你选择了正确的目录，并且该目录或子目录中包含可读的文本文件。
+If you encounter other issues, you can report them on the [Issues](https://github.com/netcookies/copy-text-files/issues) page of the GitHub repository.
 
-- **无法复制文件内容**：
-  - 请确保 Raycast 正常运行，并且没有其他插件或应用干扰剪贴板操作。
+## Contributing
 
-- **插件只识别部分文件**：
-  - 插件只会处理可读的文本文件（非二进制文件）。如果某些文件无法识别为文本文件，可能是因为文件包含非文本内容（如二进制编码、特殊字符等）。
+Contributions are welcome! If you'd like to contribute, please fork the repository and submit a pull request.
 
-如果你遇到其他问题，可以通过 GitHub 仓库的 [Issues](https://github.com/netcookies/copy-text-files/issues) 页面报告问题。
-
-## 贡献
-
-欢迎大家为项目贡献代码和提出改进建议！如果你想参与贡献，请 Fork 本仓库，并提交 Pull Request。
-
-1. 克隆仓库：
+1. Clone the repository:
    ```bash
    git clone https://github.com/netcookies/copy-text-files.git
+   ```
+2. Make your changes and submit a pull request.
 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+---
+
+### Code Overview
+
+This extension works by using Raycast to allow users to select a directory, scanning all readable text files (excluding binary files) within it. It detects various text file formats, extracts their contents, and copies them to the clipboard. The extension is particularly useful for users who need to quickly **copy an entire project’s code** for AI queries, helping save time when interacting with AI for code analysis, debugging, or question-answering.
+
+For the Chinese version of this README, please visit [here](link_to_chinese_version).
