@@ -1,15 +1,15 @@
 import { getSelectedFinderItems, Clipboard, showToast, Toast, getPreferenceValues } from "@raycast/api";
-import { promises as fs } from 'fs';
+import { promises as fs } from "fs";
 
 interface Preferences {
-  includeFilePath: boolean
+  includeFilePath: boolean;
 }
 
 async function getSelectedTextFiles(): Promise<string[]> {
   try {
     const files = await getSelectedFinderItems();
-    showToast(Toast.Style.Failure, JSON.stringify(files, null, 4))
-    return files.map(file => file.path)
+    showToast(Toast.Style.Failure, JSON.stringify(files, null, 4));
+    return files.map((file) => file.path);
   } catch (error) {
     showToast(Toast.Style.Failure, "📁 Unable to get selected files");
     return [];
