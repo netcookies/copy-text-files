@@ -15,6 +15,22 @@
       "title": "Copy Text Files",
       "description": "Copy text files in current finder",
       "mode": "no-view"
+    },
+    {
+      "name": "copy-selected-file",
+      "title": "Copy Selected File",
+      "description": "Copy text from selected file in current Finder window",
+      "mode": "no-view",
+      "preferences": [
+        {
+          "name": "includeFilePath",
+          "type": "checkbox",
+          "description": "Include the file path in the copied text",
+          "default": false,
+          "label": "Include path",
+          "required": false
+        }
+      ]
     }
   ],
   "dependencies": {
